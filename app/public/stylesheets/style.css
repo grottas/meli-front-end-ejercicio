@@ -2,6 +2,33 @@ body {
   background: #eeeeee; }
 
 header {
-  background: #ffe600; }
+  height: 54px;
+  text-align: center;
+  background: #ffe600;
+  padding: 7px 0;
+  box-sizing: border-box; }
+  header > * {
+    display: inline-block;
+    vertical-align: middle; }
+  header img.site-logo {
+    height: 40px; }
+  header input {
+    height: 40px;
+    border: none;
+    padding: 10px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-radius: 4px 0 0 4px; }
+  header .search-button {
+    height: 40px;
+    border: none;
+    background: #eeeeee;
+    padding: 0 6px;
+    border-radius: 0 4px 4px 0; }
+    header .search-button img.search-icon {
+      padding: 10px;
+      height: 40px;
+      box-sizing: border-box; }
 
 /*# sourceMappingURL=style.css.map */

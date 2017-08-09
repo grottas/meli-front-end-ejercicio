@@ -9,6 +9,50 @@ body {
   background: $grey-100;
 }
 
+$header-height: 54px;
+$header-padding: 7px;
+
 header {
+  // TODO: adaptar a grilla 
+  height: $header-height;
+  text-align: center;
   background: $yellow;
+  padding: $header-padding 0;
+  box-sizing: border-box;
+
+  & > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  $child-height: $header-height - 2 * $header-padding;
+
+  img.site-logo {
+      height: $child-height;
+  }
+
+  input {
+    height: $child-height;
+    border: none;
+    padding: 10px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .search-button {
+    height: $child-height;
+    border: none;
+    background: $grey-100;
+    padding: 0 6px;
+    border-radius: 0 4px 4px 0;
+
+    img.search-icon {
+      padding: 10px;
+      height: $header-height - 2 * $header-padding;
+      box-sizing: border-box;
+    }
+  }
+
 }
