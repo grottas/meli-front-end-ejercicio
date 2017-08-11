@@ -1,11 +1,7 @@
 var express = require('express');
 var path = require('path');
-//var cookieParser = require('cookie-parser');
-
-var index = require('./routes/index');
 var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 var partials = require('express-partials');
@@ -28,11 +24,13 @@ app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   indentedSyntax: false, // true = .sass and false = .scss
+  outputStyle: 'compressed',
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+var routes = require('./routes');
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
