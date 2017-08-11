@@ -61,6 +61,10 @@ header form {
     border: none;
     background: $grey-100;
     padding: 0 6px;
+    cursor: pointer;
+    &:hover {
+      background: lighten($grey-100, 2%);
+    }
 
     img.search-icon {
       padding: 10px;
