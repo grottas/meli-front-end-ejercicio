@@ -1,10 +1,12 @@
 <header>
-  <div id="header-grid">
-    <div id="header-content">
-      <img class="site-logo" src="/images/logo.png">
+  <div class="full-body-container">
+    <div id="header-content" class="full-body-content">
+      <a href="/">
+        <img class="site-logo" src="/images/logo.png">
+      </a>
       <form action="/items">
-        <input type="text" name="search" placeholder="Nunca dejes de buscar"
-          value="<%= search %>"><button class="search-button" type="submit">
+        <input name="search" placeholder="Nunca dejes de buscar"
+               value="<%= search %>"><button class="search-button">
           <img class="search-icon" src="/images/search.png">
         </button>
       </form>

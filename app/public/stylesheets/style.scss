@@ -13,4 +13,22 @@ body {
   color: $grey-400;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.full-body-container {
+  $max-width: 1220px;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.full-body-content {
+  box-sizing: border-box;
+  margin-left: 1 / $total-columns * 100%;
+  width: 10 / $total-columns * 100%;
+}
+
 @import 'header';
+@import 'items';

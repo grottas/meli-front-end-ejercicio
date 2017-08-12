@@ -9,18 +9,9 @@ header {
   padding: $header-padding 0;
   box-sizing: border-box;
 
-  #header-grid {
-    $header-content-max-width: 1220px;
-    max-width: $header-content-max-width;
-    margin: 0 auto;
-
-    #header-content {
-      position: relative;
-      box-sizing: border-box;
-      margin-left: 1 / $total-columns * 100%;
-      width: 10 / $total-columns * 100%;
-      padding: 0 0 0 80px;
-    }
+  #header-content {
+    position: relative;
+    padding: 0 0 0 80px;
   }
 }
 
