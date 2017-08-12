@@ -20,10 +20,20 @@ ref: https://github.com/tastejs/todomvc/blob/master/examples/backbone/index.html
 ## Contar el proceso acá
 
 - Usé la pagina oficial de express como guia
+- Aunque no utilicé todos los atributos de la api para renderizar los templates, mantuve la estructura propuesta y
+agregué otros atributos que me resultaban de utilidad
+- Que onda "author" en la respuesta de la api?
 
 
 ## Pendientes
+- Prefijos para css
+- Minificar js y css
+- Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
+- SEO, metatags
 - Chequear que las dependencias esten bien listadas y se pueda reproducir el server facilmente
+- Modo produccion del server
 - Documentar codigo
+- Manejo de errores. Pagina de 500. Pagina de 404. Pagina de "no hay resultados"
+- Benchmark y performance
 - Usar ruteo inteligente para assets
 - Usar generador de urls para linkear desde los templates

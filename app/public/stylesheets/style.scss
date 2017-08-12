@@ -19,7 +19,7 @@ a {
 }
 
 .full-body-container {
-  $max-width: 1220px;
+  $max-width: 1400px;
   max-width: $max-width;
   margin: 0 auto;
 }
@@ -32,3 +32,4 @@ a {
 
 @import 'header';
 @import 'items';
+@import 'item';

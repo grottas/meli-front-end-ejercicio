@@ -1,1 +1,32 @@
-Acá el item <%= itemId %>
+<% include breadcrumb.ejs %>
+
+<div id="item" class="full-body-content">
+    <div id="item-main">
+        <img src="<%= response.picture %>">
+        <p class="condition-and-sold-quantity">
+            <%= response.condition === 'new' ? 'Nuevo' : 'Usado' %>
+            -
+            <%= response.sold_quantity %>
+            <%= response.sold_quantity === 1 ? 'vendido' :  'vendidos' %>
+        </p>
+        <h1>
+            <%= response.title %>
+        </h1>
+        <p class="price">
+            <% var decimals = response.price.decimals, decimalsString = response.price.decimals.toString() %>
+            <%= response.price.currency === 'ARS' ? '' : response.price.currency %>
+            $
+            <%= Math.floor(response.price.amount) %><span class="decimals"><%= decimals == 0 ? '' : decimals < 10 ? '0' + decimalsString : decimalsString %>
+          </span>
+        </p>
+        <button class="buy-btn">
+            Comprar
+        </button>
+    </div>
+    <div id="item-description">
+        <h2>Descripción del producto</h2>
+        <div id="description">
+            <%- response.description %>
+        </div>
+    </div>
+</div>

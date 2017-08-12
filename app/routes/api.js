@@ -8,19 +8,21 @@ router.get('/items', function(req, res) {
     if (results) {
       res.json(results);
     } else {
-      res.sendStatus(404);
+      res.status(404);
+      res.json(null);
     }
   };
   MeLiClient.search(query, searchCallback);
 });
 
-router.get('/item/:item_id', function(req, res) {
+router.get('/items/:item_id', function(req, res) {
   var itemId = req.params.item_id;
   var itemCallback = function (item) {
     if (item) {
       res.json(item);
     } else {
-      res.sendStatus(404);
+      res.status(404);
+      res.json(null);
     }
   };
   MeLiClient.item(itemId, itemCallback)

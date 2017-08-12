@@ -2,7 +2,21 @@ var MeLi = require('./_lib');
 
 var itemResponseParser = function (jsonResponse) {
   var itemResponse = JSON.parse(jsonResponse);
-  return {item: itemResponse}
+  var floorPrice = Math.floor(itemResponse.price);
+  return {
+    id: itemResponse.id,
+    title: itemResponse.title,
+    price: {
+      currency: itemResponse.currency_id,
+      amount: floorPrice ,
+      decimals: Math.floor((itemResponse.price - Math.floor(floorPrice)) * 100)
+    },
+    picture: itemResponse.pictures[0].url,
+    condition: itemResponse.condition,
+    free_shipping: itemResponse.shipping.free_shipping,
+    sold_quantity: itemResponse.sold_quantity,
+    category_id: itemResponse.category_id
+  }
 };
 
 var itemDescriptionResponseParser = function (jsonResponse) {
@@ -10,36 +24,62 @@ var itemDescriptionResponseParser = function (jsonResponse) {
   var html = itemDescriptionResponse.text;
   var plain = itemDescriptionResponse.plain_text;
   var description = html && html.length > 0 ? html : plain && plain.length > 0 ? plain : '';
-  return {description: description, original: itemDescriptionResponse}
+  return { description: description }
+};
+
+var itemCategoriesParser = function (jsonResponse) {
+  var itemCategoriesResponse = JSON.parse(jsonResponse);
+  var categories = itemCategoriesResponse.path_from_root.map(function (category) {
+    return category.name
+  });
+  return { categories: categories }
 };
 
 var itemUrl = 'https://api.mercadolibre.com/items/​:item_id';
 var itemDescriptionUrl = 'https://api.mercadolibre.com/items/:item_id/description';
+var itemCategoriesUrl = 'https://api.mercadolibre.com/categories/:category_id';
 var extend = require('util')._extend;
+
 var item = function (id, callback) {
-  var parsedItem = {};
-  var gotItem = false;
-  var gotDescription = false;
+  var parsedItem = {item: {}},
+    _itemUrl = itemUrl.replace(':item_id', id),
+    _descriptionUrl = itemDescriptionUrl.replace(':item_id', id),
+    _categoriesUrl = '',
+    gotItem = false,
+    gotDescription = false,
+    gotCategories = false;
+
   var combineResponses = function (response, requestedUrl) {
     if (response === null) {
       callback(null);
     }
-    parsedItem = extend(parsedItem, response);
-    var lastPartOfUrl = requestedUrl.slice(-11);
-    gotItem = lastPartOfUrl !== 'description' || gotItem;
-    gotDescription = lastPartOfUrl === 'description' || gotDescription;
-    if (gotItem && gotDescription) {
+    parsedItem.item = extend(parsedItem.item, response);
+
+    gotItem = requestedUrl === _itemUrl || gotItem;
+    gotDescription = requestedUrl === _descriptionUrl || gotDescription;
+    gotCategories = requestedUrl === _categoriesUrl || gotCategories;
+
+    if (requestedUrl === _itemUrl) {
+      _categoriesUrl = itemCategoriesUrl.replace(':category_id', parsedItem.item.category_id);
+      MeLi.request({
+        url: _categoriesUrl,
+        parser: itemCategoriesParser,
+        callback: combineResponses
+      });
+    }
+
+    if (gotItem && gotDescription && gotCategories) {
       callback(parsedItem)
     }
   };
 
   MeLi.request({
-    url: itemUrl.replace(':item_id', id),
+    url: _itemUrl,
     parser: itemResponseParser,
     callback: combineResponses
   });
   MeLi.request({
-    url: itemDescriptionUrl.replace(':item_id', id),
+    url: _descriptionUrl,
     parser: itemDescriptionResponseParser,
     callback: combineResponses
   });

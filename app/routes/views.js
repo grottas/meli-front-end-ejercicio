@@ -23,7 +23,15 @@ router.get('/items', function(req, res) {
 
 router.get('/item/:item_id', function(req, res) {
   var templateParams = { search: '', itemId: req.params.item_id };
-  res.render('item', templateParams);
+  var itemCallback = function (response) {
+    if (response) {
+      templateParams.response = response.item;
+      res.render('item', templateParams);
+    } else {
+      res.sendStatus(404);
+    }
+  };
+  MeLiClient.item(templateParams.itemId, itemCallback);
 });
 
 module.exports = router;

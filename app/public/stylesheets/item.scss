@@ -1,0 +1,56 @@
+#item {
+  background: white;
+  border-radius: 4px;
+  padding: 32px;
+
+  #item-main {
+    overflow: auto;
+    zoom: 1;
+
+    img {
+      float: left;
+      width: 680px;
+      margin-right: 32px;
+    }
+
+    .condition-and-sold-quantity {
+      font-size: 14px;
+      margin: 0 0 16px 0;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0 0 32px 0;
+    }
+
+    .price {
+      font-size: 46px;
+      margin: 0 0 32px 0;
+      .decimals {
+        font-size: 24px;
+        vertical-align: super;
+      }
+    }
+
+    .buy-btn {
+      width: 200px; // ugh
+      font-size: 16px;
+      padding: 10px;
+      border: none;
+      color: white;
+      background: $blue;
+      border-radius: 4px;
+      cursor: pointer;
+      outline: none;
+    }
+  }
+
+  #item-description {
+    h2 {
+      font-size: 28px;
+      font-weight: 400;
+      margin: 32px 0;
+    }
+  }
+}

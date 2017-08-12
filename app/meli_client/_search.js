@@ -20,21 +20,21 @@ var searchResponseParser = function (jsonResponse) {
   var searchResponse = JSON.parse(jsonResponse);
   return {
     // author ?
-    breadcrumb: getBreadcrumb(searchResponse),
+    categories: getBreadcrumb(searchResponse),
     results: searchResponse.results.slice(0, 4).map(searchItemResponseParser)
   };
 };
 
 
 var searchItemResponseParser = function (result) {
-  var price = Math.floor(result.price);
+  var floorPrice = Math.floor(result.price);
   return {
     id: result.id,
     title: result.title,
     price: {
       currency: result.currency_id,
-      amount: price,
-      decimals: price - Math.floor(price)
+      amount: floorPrice,
+      decimals: Math.floor((result.price - Math.floor(floorPrice)) * 100)
     },
     picture: result.thumbnail,
     condition: result.condition,
