@@ -2,18 +2,11 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <title>ML-Test</title>
-
-    <!-- TODO: tags meta: meta cards para redes sociales -->
-    <!-- TODO: tags meta: viewport -->
+    <title><%= title %></title>
+    <meta name='description' content='<%= customMetaDescription || 'La comunidad de compra y venta online más grande de América Latina.' %>'/>
 
     <link href="/stylesheets/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" integrity="sha256-HxaKz5E/eBbvhGMNwhWRPrAR9i/lG1JeT4mD6hCQ7s4=" crossorigin="anonymous" />
-
-    <script src="/javascripts/lib/jquery-3.2.1.min.js"></script>
-    <script src="/javascripts/lib/underscore-min.js"></script>
-    <script src="/javascripts/lib/backbone-min.js"></script>
-    <script src="/javascripts/main.js"></script>
+    <script src="/javascripts/main.min.js"></script>
   </head>
   <body>
     <%- include partials/header.ejs %>

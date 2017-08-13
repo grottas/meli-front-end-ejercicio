@@ -26,13 +26,12 @@ agregué otros atributos que me resultaban de utilidad
 - Underscore y Backbone
 
 ## Pendientes
-- Prefijos para css
-- Minificar js y css
+- Chequear si la query es un id y entonces redireccionar a la vista del item
+- Responsiveness
+- Consistencia aun bajo throttiling bajo
 - Cache para assets
 - Gzip
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
-- SEO, metatags
-- Chequear que las dependencias esten bien listadas y se pueda reproducir el server facilmente
 - Modo produccion del server
 - Documentar codigo
 - Manejo de errores. Pagina de 500. Pagina de 404. Pagina de "no hay resultados"

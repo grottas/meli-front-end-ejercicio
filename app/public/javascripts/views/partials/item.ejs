@@ -1,36 +1,58 @@
-<ol id="breadcrumb" class="full-body-content">
-    <% for (var i=0; i < categories.length; i++) { %>
-    <li><%= categories[i] %></li>
-    <% } %>
-</ol>
+<% if (preview) { %>
+    <ol id="breadcrumb" class="full-body-content">
+        <li class="preview-breadcrumb">&nbsp;</li>
+    </ol>
+<% } else if (categories && categories.length > 0) { %>
+    <ol id="breadcrumb" class="full-body-content">
+        <% for (var i=0; i < categories.length; i++) { %>
+            <li><%= categories[i] %></li>
+        <% } %>
+    </ol>
+<% } %>
+
+
 
 <div id="item" class="full-body-content">
-    <div id="item-main">
-        <img src="<%= picture %>">
-        <p class="condition-and-sold-quantity">
-            <%= condition === 'new' ? 'Nuevo' : 'Usado' %>
-            -
-            <%= sold_quantity %>
-            <%= sold_quantity === 1 ? 'vendido' :  'vendidos' %>
-        </p>
-        <h1>
-            <%= title %>
-        </h1>
-        <p class="price">
-            <% var decimals = price.decimals, decimalsString = price.decimals.toString() %>
-            <%= price.currency === 'ARS' ? '' : price.currency %>
-            $
-            <%= Math.floor(price.amount) %><span class="decimals"><%= decimals == 0 ? '' : decimals < 10 ? '0' + decimalsString : decimalsString %>
-          </span>
-        </p>
-        <button class="buy-btn">
-            Comprar
-        </button>
-    </div>
-    <div id="item-description">
-        <h2>Descripción del producto</h2>
-        <div id="description">
-            <%= description %>
+    <% if (preview) { %>
+        <div id="item-main" class="item-preview">
+            <span class="item-picture"></span>
+            <p class="condition-and-sold-quantity">&nbsp;</p>
+            <h1>&nbsp;</h1>
+            <p class="price">&nbsp;</p>
+            <button class="buy-btn">&nbsp;</button>
         </div>
-    </div>
+        <div id="item-description" class="description-preview">
+            <h2>&nbsp;</h2>
+            <div id="description">&nbsp;</div>
+        </div>
+    <% } else { %>
+        <div id="item-main">
+            <img src="<%= picture %>">
+            <p class="condition-and-sold-quantity">
+                <%= condition === 'new' ? 'Nuevo' : 'Usado' %>
+                -
+                <%= sold_quantity %>
+                <%= sold_quantity === 1 ? 'vendido' :  'vendidos' %>
+            </p>
+            <h1>
+                <%= title %>
+            </h1>
+            <p class="price">
+                <% var decimals = price.decimals, decimalsString = price.decimals.toString() %>
+                <%= price.currency === 'ARS' ? '' : price.currency %>
+                $
+                <%= Math.floor(price.amount) %><span class="decimals"><%= decimals == 0 ? '' : decimals < 10 ? '0' + decimalsString : decimalsString %>
+              </span>
+            </p>
+            <button class="buy-btn">
+                Comprar
+            </button>
+        </div>
+        <div id="item-description">
+            <h2>Descripción del producto</h2>
+            <div id="description">
+                <%= description %>
+            </div>
+        </div>
+    <% } %>
 </div>
