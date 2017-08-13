@@ -2,7 +2,7 @@ window.meli = {};
 
 window.meli.ItemsView = Backbone.View.extend({
   el: '#main',
-  templateUrl: '/javascripts/views/partials/items.ejs',
+  templateUrl: '/ejs/items.ejs',
   itemsApiUrl: '/api/items?q=:query',
 
   initialize: function (query){
@@ -32,7 +32,7 @@ window.meli.ItemsView = Backbone.View.extend({
 
 window.meli.ItemView = Backbone.View.extend({
   el: '#main',
-  templateUrl: '/javascripts/views/partials/item.ejs',
+  templateUrl: '/ejs/item.ejs',
   itemsApiUrl: '/api/items/:itemId',
   title: ':title - :currency $ :price en Mercado Libre',
 

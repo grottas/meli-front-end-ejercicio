@@ -8,7 +8,7 @@ app.use(compression({
   filter: function () { return true; }
 }));
 
-app.set('views', path.join(__dirname, 'public', 'javascripts', 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 var partials = require('express-partials');
 app.use(partials());
