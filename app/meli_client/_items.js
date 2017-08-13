@@ -22,7 +22,7 @@ var searchResponseParser = function (jsonResponse) {
   return {
     // author ?
     categories: getBreadcrumb(searchResponse),
-    results: searchResponse.results.slice(0, 4).map(searchItemResponseParser)
+    results: searchResponse.results.map(searchItemResponseParser)
   };
 };
 
@@ -86,7 +86,7 @@ var getImagesOfSearchResults = function (results, callback) {
   });
 };
 
-var searchUrl = 'https://api.mercadolibre.com/sites/MLA/search?q=:query';
+var searchUrl = 'https://api.mercadolibre.com/sites/MLA/search?q=:query&limit=4';
 var search = function (query, callback) {
   var getImagesOfSearchResultsAndThenCallback = function (results) {
     getImagesOfSearchResults(results, callback)

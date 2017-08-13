@@ -8,14 +8,11 @@
   },
   "dependencies": {
     "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
     "express": "~4.15.2",
     "express-partials": "^0.3.0",
     "morgan": "~1.8.1",
-    "node-minify": "^2.3.0",
-    "node-sass-middleware": "0.9.8",
     "request": "^2.81.0",
     "serve-favicon": "~2.4.2",
     "title-case": "^2.1.1"
