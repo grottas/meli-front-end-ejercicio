@@ -2,6 +2,12 @@ var express = require('express');
 var path = require('path');
 var app = express();
 
+var compression = require('compression');
+app.use(compression({
+  threshold : 0,
+  filter: function () { return true; }
+}));
+
 app.set('views', path.join(__dirname, 'public', 'javascripts', 'views'));
 app.set('view engine', 'ejs');
 var partials = require('express-partials');

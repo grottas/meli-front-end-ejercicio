@@ -30,7 +30,6 @@ agregué otros atributos que me resultaban de utilidad
 - Responsiveness
 - Consistencia aun bajo throttiling bajo
 - Cache para assets
-- Gzip
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
 - Modo produccion del server
 - Documentar codigo
