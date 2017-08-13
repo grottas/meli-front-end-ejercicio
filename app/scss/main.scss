@@ -9,6 +9,7 @@ $total-columns: 12;
 $small-margin: 16px;
 $medium-margin: 32px;
 $breakpoint: 768px;
+$max-container-width: 1400;
 
 @mixin breakpoint {
   @media (min-width: $breakpoint) {
@@ -30,8 +31,7 @@ a {
 }
 
 .full-body-container {
-  $max-width: 1400px;
-  max-width: $max-width;
+  max-width: $max-container-width;
   margin: 0 auto;
 }
 

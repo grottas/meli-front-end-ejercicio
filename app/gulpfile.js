@@ -10,7 +10,8 @@ var scripts = [
   'client_js/lib/jquery-3.2.1.min.js',
   'client_js/lib/underscore-min.js',
   'client_js/lib/backbone-min.js',
-  'client_js/backbone_views.js'
+  'client_js/items.js',
+  'client_js/item.js'
 ];
 gulp.task('scripts', function() {
   gulp.src(scripts)

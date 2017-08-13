@@ -1,8 +1,4 @@
-<% if (preview) { %>
-    <ol id="breadcrumb" class="full-body-content">
-        <li class="preview-breadcrumb">&nbsp;</li>
-    </ol>
-<% } else if (categories && categories.length > 0) { %>
+<% if (categories && categories.length > 0) { %>
     <ol id="breadcrumb" class="full-body-content">
         <% for (var i=0; i < categories.length; i++) { %>
             <li><%= categories[i] %></li>
@@ -10,38 +6,23 @@
     </ol>
 <% } %>
 
-<% if (preview) {
-  var results = [null, null, null, null]
-}%>
-
 <ol id="results" class="full-body-content">
     <% for (var i=0; i < results.length; i++) {
-        if (preview) { %>
-            <li class="result preview-result">
-                <div class="thumbnail"></div>
-                <p class="price">&nbsp;</p>
-                <p class="address">&nbsp;</p>
-                <h1>&nbsp;</h1>
-            </li>
-        <% } else {
-            var result = results[i]; %>
-            <a href="<%= result.id ? '/item/' + result.id : '' %>">
-                <li class="result <%= preview ? 'preview-result' : '' %>">
-                    <div style="background-image: url(<%= result.picture %>);" class="thumbnail"></div>
-                    <p class="price">
-                        <%= result.price.currency == 'ARS' ? '' : result.price.currency %>
-                        $ <%= result.price.amount %><span class="decimals">
-                            <% var decimals = result.price.decimals, decimalsString = result.price.decimals.toString() %>
-                            <%= decimals == 0 ? '' : decimals < 10 ? '0' + decimalsString : decimalsString %>
-                        </span>
-                        <% if (result.free_shiping) { %>
+        var result = results[i]; %>
+        <a href="<%= result.id ? '/item/' + result.id : '' %>">
+            <li class="result">
+                <div style="background-image: url(<%= result.picture %>);" class="thumbnail"></div>
+                <p class="price">
+                    <%= result.price %><span class="decimals">
+                        <%= result.decimals %>
+                    </span>
+                    <% if (result.free_shiping) { %>
                         <img src="/images/shipping.png" class="shipping">
-                        <% } %>
-                    </p>
-                    <p class="address"><%= result.address %></p>
-                    <h1><%= result.title %></h1>
-                </li>
-            </a>
-        <% }
-    }%>
+                    <% } %>
+                </p>
+                <p class="address"><%= result.address %></p>
+                <h1><%= result.title %></h1>
+            </li>
+        </a>
+    <% } %>
 </ol>

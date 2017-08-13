@@ -41,9 +41,7 @@ agregué otros atributos que me resultaban de utilidad
 - Underscore y Backbone
 
 ## Pendientes
-- Responsiveness
 - Chequear si la query es un id y entonces redireccionar a la vista del item
-- Consistencia aun bajo throttiling bajo
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
 - Modo produccion del server https://www.digitalocean.com/community/tutorials/how-to-deploy-node-js-applications-using-systemd-and-nginx
 - Documentar codigo
@@ -51,3 +49,4 @@ agregué otros atributos que me resultaban de utilidad
 - Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html
 - Usar ruteo inteligente para assets
 - Usar generador de urls para linkear desde los templates
+- En /item/:id que la columna de la derecha te acompañe al scrollear

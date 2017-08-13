@@ -1,5 +1,12 @@
 var MeLi = require('./_lib');
 
+var getBestPicture = function (pictures) {
+  if (pictures && pictures.length > 0) {
+    return pictures[0].url;
+  }
+  return null;
+};
+
 var itemResponseParser = function (jsonResponse) {
   var itemResponse = JSON.parse(jsonResponse);
   var floorPrice = Math.floor(itemResponse.price);
@@ -11,7 +18,8 @@ var itemResponseParser = function (jsonResponse) {
       amount: floorPrice ,
       decimals: Math.floor((itemResponse.price - Math.floor(floorPrice)) * 100)
     },
-    picture: itemResponse.pictures[0].url,
+    picture: getBestPicture(itemResponse.pictures),
+    rawPictures: itemResponse.pictures,
     condition: itemResponse.condition,
     free_shipping: itemResponse.shipping.free_shipping,
     sold_quantity: itemResponse.sold_quantity,
@@ -22,7 +30,7 @@ var itemResponseParser = function (jsonResponse) {
 var itemDescriptionResponseParser = function (jsonResponse) {
   var itemDescriptionResponse = JSON.parse(jsonResponse);
   var html = itemDescriptionResponse.text;
-  var plain = itemDescriptionResponse.plain_text;
+  var plain = itemDescriptionResponse.plain_text.replace(/(?:\r\n|\r|\n)/g, '<br />');
   var description = html && html.length > 0 ? html : plain && plain.length > 0 ? plain : '';
   return { description: description }
 };

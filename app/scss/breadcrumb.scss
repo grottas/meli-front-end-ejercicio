@@ -18,10 +18,10 @@
     &:last-child::after {
       content: none;
     }
-
-    &.preview-breadcrumb {
-      background: white;
-      width: 50%;
-    }
   }
+}
+
+.preview #breadcrumb li {
+  background: white;
+  width: 50%;
 }

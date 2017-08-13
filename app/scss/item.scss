@@ -6,22 +6,21 @@
   margin-bottom: 16px;
 
   #item-main {
-    overflow: auto;
-    zoom: 1;
-
-    img {
-      float: left;
-      width: 680px;
-      margin-right: 32px;
-    }
-
-    &.item-preview .item-picture {
-      float: left;
-      width: 680px;
-      height: 420px;
-      margin-right: 32px;
-      background: $grey-100;
+    .item-picture {
       display: inline-block;
+      width: 60%;
+      vertical-align: top;
+      .picture-spacer {
+        padding-right: 32px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .item-main-info {
+      display: inline-block;
+      width: 40%;
+      vertical-align: top;
     }
 
     .condition-and-sold-quantity {
@@ -29,21 +28,10 @@
       margin: 0 0 16px 0;
     }
 
-    &.item-preview .condition-and-sold-quantity {
-      background: $grey-100;
-      width: 10em;
-      display: inline-block;
-    }
-
     h1 {
       font-size: 24px;
-      font-weight: 400;
+      font-weight: bold;
       margin: 0 0 32px 0;
-    }
-    &.item-preview h1 {
-      background: $grey-100;
-      width: 10em;
-      display: inline-block;
     }
 
     .price {
@@ -55,14 +43,9 @@
       }
     }
 
-    &.item-preview .price {
-      background: $grey-100;
-      width: 5em;
-      display: inline-block;
-    }
-
     .buy-btn {
-      width: 200px; // ugh
+      width: 100%;
+      max-width: 250px; // ugh
       font-size: 16px;
       padding: 10px;
       border: none;
@@ -76,25 +59,70 @@
   }
 
   #item-description {
+    width: 60%;
     h2 {
       font-size: 28px;
       font-weight: 400;
       margin: 32px 0;
     }
-    &.description-preview h2 {
-      width: 15em;
-      background: $grey-100;
-    }
 
     #description {
       overflow: auto;
       zoom: 1;
+      * {
+        max-width: 100%;
+      }
     }
 
-    &.description-preview #description {
-      background: $grey-100;
-      width: 680px;
-      height: 400px;
+
+  }
+
+  .preview & {
+    #item-main {
+      h1 {
+        background: $grey-100;
+        width: 100%;
+        height: 1em;
+        display: inline-block;
+      }
+
+      .price {
+        background: $grey-100;
+        width: 60%;
+        height: 1em;
+        display: inline-block;
+      }
+
+      .buy-btn {
+        background: $grey-100;
+        color: $grey-100;
+      }
+
+      .no-img {
+        background: $grey-100;
+        width: 100%;
+        padding-top: 3 / 4 * 100%;
+      }
+
+      .condition-and-sold-quantity {
+        width: 60%;
+        height: 1em;
+        background: $grey-100;
+        display: inline-block;
+      }
+    }
+    #item-description {
+      h2 {
+        width: 60%;
+        height: 1em;
+        background: $grey-100;
+        color: $grey-100;
+      }
+      #description {
+        background: $grey-100;
+        width: 680px;
+        height: 400px;
+      }
     }
   }
 }
