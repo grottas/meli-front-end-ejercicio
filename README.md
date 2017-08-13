@@ -23,11 +23,13 @@ ref: https://github.com/tastejs/todomvc/blob/master/examples/backbone/index.html
 - Aunque no utilicé todos los atributos de la api para renderizar los templates, mantuve la estructura propuesta y
 agregué otros atributos que me resultaban de utilidad
 - Que onda "author" en la respuesta de la api?
-
+- Underscore y Backbone
 
 ## Pendientes
 - Prefijos para css
 - Minificar js y css
+- Cache para assets
+- Gzip
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
 - SEO, metatags
 - Chequear que las dependencias esten bien listadas y se pueda reproducir el server facilmente

@@ -13,6 +13,7 @@ var getBreadcrumb = function (searchResponse) {
       }
     }
   }
+  return null;
 };
 
 

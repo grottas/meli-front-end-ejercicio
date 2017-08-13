@@ -1,0 +1,36 @@
+<ol id="breadcrumb" class="full-body-content">
+    <% for (var i=0; i < categories.length; i++) { %>
+    <li><%= categories[i] %></li>
+    <% } %>
+</ol>
+
+<div id="item" class="full-body-content">
+    <div id="item-main">
+        <img src="<%= picture %>">
+        <p class="condition-and-sold-quantity">
+            <%= condition === 'new' ? 'Nuevo' : 'Usado' %>
+            -
+            <%= sold_quantity %>
+            <%= sold_quantity === 1 ? 'vendido' :  'vendidos' %>
+        </p>
+        <h1>
+            <%= title %>
+        </h1>
+        <p class="price">
+            <% var decimals = price.decimals, decimalsString = price.decimals.toString() %>
+            <%= price.currency === 'ARS' ? '' : price.currency %>
+            $
+            <%= Math.floor(price.amount) %><span class="decimals"><%= decimals == 0 ? '' : decimals < 10 ? '0' + decimalsString : decimalsString %>
+          </span>
+        </p>
+        <button class="buy-btn">
+            Comprar
+        </button>
+    </div>
+    <div id="item-description">
+        <h2>Descripción del producto</h2>
+        <div id="description">
+            <%= description %>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 var item = require('./_item');
-var search = require('./_search');
+var items = require('./_items');
 
 module.exports = {
-  search: search,
+  items: items,
   item: item
 };

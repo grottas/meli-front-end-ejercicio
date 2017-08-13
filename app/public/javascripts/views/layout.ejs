@@ -9,11 +9,16 @@
 
     <link href="/stylesheets/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" integrity="sha256-HxaKz5E/eBbvhGMNwhWRPrAR9i/lG1JeT4mD6hCQ7s4=" crossorigin="anonymous" />
+
+    <script src="/javascripts/lib/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/lib/underscore-min.js"></script>
+    <script src="/javascripts/lib/backbone-min.js"></script>
+    <script src="/javascripts/main.js"></script>
   </head>
   <body>
-    <%- include header.ejs -%>
-    <div class="full-body-container">
-        <%- body -%>
+    <%- include partials/header.ejs %>
+    <div id="main" class="full-body-container">
+      <%- body %>
     </div>
   </body>
 </html>

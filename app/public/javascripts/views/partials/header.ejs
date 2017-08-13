@@ -6,7 +6,7 @@
       </a>
       <form action="/items">
         <input name="search" placeholder="Nunca dejes de buscar"
-               value="<%= search %>"><button class="search-button">
+               value="<%= locals.search || '' %>"><button class="search-button">
           <img class="search-icon" src="/images/search.png">
         </button>
       </form>

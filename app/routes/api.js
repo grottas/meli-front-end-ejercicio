@@ -12,7 +12,7 @@ router.get('/items', function(req, res) {
       res.json(null);
     }
   };
-  MeLiClient.search(query, searchCallback);
+  MeLiClient.items(query, searchCallback);
 });
 
 router.get('/items/:item_id', function(req, res) {
