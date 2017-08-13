@@ -7,6 +7,8 @@ $grey-400: #333333;
 
 $total-columns: 12;
 
+@import 'normalize.min';
+
 body {
   font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;
   background: $grey-100;

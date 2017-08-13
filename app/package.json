@@ -14,11 +14,20 @@
     "express": "~4.15.2",
     "express-partials": "^0.3.0",
     "morgan": "~1.8.1",
+    "node-minify": "^2.3.0",
     "node-sass-middleware": "0.9.8",
     "request": "^2.81.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "title-case": "^2.1.1"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
     "nodemon": "^1.11.0"
   }
 }

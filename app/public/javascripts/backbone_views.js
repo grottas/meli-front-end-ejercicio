@@ -24,7 +24,6 @@ window.meli.ItemsView = Backbone.View.extend({
 
   render: function () {
     if (this.template && this.results) {
-      console.log(this.results);
       var html = this.template(this.results);
       this.$el.html(html);
     }
@@ -34,6 +33,7 @@ window.meli.ItemsView = Backbone.View.extend({
 window.meli.ItemView = Backbone.View.extend({
   templateUrl: '/javascripts/views/partials/item.ejs',
   itemsApiUrl: '/api/items/:itemId',
+  title: ':title - :currency $ :price en Mercado Libre',
 
   initialize: function (itemId) {
     $('#main').append(this.$el);
@@ -48,14 +48,19 @@ window.meli.ItemView = Backbone.View.extend({
   },
 
   readResults: function (response) {
-    this.results = response.item;
+    this.item = response.item;
+    var newTitle = this.title.replace(':title', this.item.title);
+    newTitle = newTitle.replace(':currency ', this.item.price.currency === 'ARS' ? '' : this.item.price.currency);
+    var amountString = this.item.price.amount.toString();
+    var decimalsString = this.item.price.decimals < 9 ? '0' + this.item.price.decimals.toString() : this.item.price.decimals.toString();
+    newTitle = newTitle.replace(':price', amountString + ',' + decimalsString);
+    $('title').text(newTitle);
     this.render();
   },
 
   render: function () {
-    if (this.template && this.results) {
-      console.log(this.results);
-      var html = this.template(this.results);
+    if (this.template && this.item) {
+      var html = this.template(this.item);
       this.$el.html(html);
     }
   },
