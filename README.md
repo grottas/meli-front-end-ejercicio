@@ -41,7 +41,6 @@ agregué otros atributos que me resultaban de utilidad
 - Underscore y Backbone
 
 ## Pendientes
-- Chequear si la query es un id y entonces redireccionar a la vista del item
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
 - Documentar codigo
 - Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html

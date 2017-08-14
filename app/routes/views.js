@@ -15,14 +15,18 @@ router.get('/', function(req, res) {
 
 router.get('/items', function(req, res) {
   var query = req.query.search;
-  var metaDescription = 'Encontrá :query en Mercado Libre Argentina. Descubrí la mejor forma de comprar online.';
-  var templateParams = {
-    title: ':query en Mercado Libre Argentina'.replace(':query', titleCase(query)),
-    customMetaDescription: metaDescription.replace(':query', query),
-    search: query,
-    common: common
-  };
-  res.render('items', templateParams);
+  if (query.match(/MLA\-?([0-9])+/)) {
+    res.redirect('item/' + query)
+  } else {
+    var metaDescription = 'Encontrá :query en Mercado Libre Argentina. Descubrí la mejor forma de comprar online.';
+    var templateParams = {
+      title: ':query en Mercado Libre Argentina'.replace(':query', titleCase(query)),
+      customMetaDescription: metaDescription.replace(':query', query),
+      search: query,
+      common: common
+    };
+    res.render('items', templateParams);
+  }
 });
 
 router.get('/item/:item_id', function(req, res) {
