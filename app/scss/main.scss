@@ -8,11 +8,18 @@ $grey-400: #333333;
 $total-columns: 12;
 $small-margin: 16px;
 $medium-margin: 32px;
-$breakpoint: 768px;
+$sm-breakpoint: 576px;
+$md-breakpoint: 768px;
 $max-container-width: 1400;
 
-@mixin breakpoint {
-  @media (min-width: $breakpoint) {
+@mixin sm-breakpoint {
+  @media (min-width: $sm-breakpoint) {
+    @content;
+  }
+}
+
+@mixin md-breakpoint {
+  @media (min-width: $md-breakpoint) {
     @content;
   }
 }
@@ -38,7 +45,7 @@ a {
 .full-body-content {
   margin-left: $small-margin;
   margin-right: $small-margin;
-  @include breakpoint {
+  @include md-breakpoint {
     box-sizing: border-box;
     margin-left: 1 / $total-columns * 100%;
     margin-right: 0;
@@ -62,7 +69,7 @@ a {
     height: 100%;
     width: 20%;
     top: 0;
-    background-image: linear-gradient(to right, transparent, white, transparent);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0));
     animation-name: loading;
     animation-duration: 2s;
     animation-iteration-count: infinite;
