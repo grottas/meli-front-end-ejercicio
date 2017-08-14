@@ -9,7 +9,7 @@
 <ol id="results" class="full-body-content">
     <% for (var i=0; i < results.length; i++) {
         var result = results[i]; %>
-        <a href="<%= result.id ? '../item/' + result.id : '' %>">
+        <a href="<%= result.id ? './item/' + result.id : '' %>">
             <li class="result">
                 <div style="background-image: url(<%= result.picture %>);" class="thumbnail"></div>
                 <p class="price">
