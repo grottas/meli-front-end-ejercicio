@@ -54,10 +54,12 @@ var item = function (id, callback) {
     _categoriesUrl = '',
     gotItem = false,
     gotDescription = false,
-    gotCategories = false;
+    gotCategories = false,
+    callbackCalled = false;
 
   var combineResponses = function (response, requestedUrl) {
     if (response === null && requestedUrl === _itemUrl) {
+      callbackCalled = true;
       callback(null);
     }
     parsedItem.item = extend(parsedItem.item, response);
@@ -75,7 +77,7 @@ var item = function (id, callback) {
       });
     }
 
-    if (gotItem && gotDescription && gotCategories) {
+    if (gotItem && gotDescription && gotCategories && !callbackCalled) {
       callback(parsedItem)
     }
   };
