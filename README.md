@@ -1,6 +1,6 @@
 # Test Front-End para MercadoLibre
 
-Ejercicio práctico de front-end para MercadoLibre. Se puede ver una version estable del proyecto [aqui](http://nach.com.ar/meli).
+Ejercicio práctico de front-end para MercadoLibre. Se puede ver una version estable del proyecto [aqui](https://nach.com.ar/meli).
 
 ## Setup
 
@@ -19,7 +19,9 @@ $ npm install
 
 Para levantar el servidor en modo desarrollo ejecutar `DEBUG=app:* npm run devstart` desde la carpeta `app`. 
 
-Para levantar el servidor en modo produccion, ejecutar `NODE_ENV=production npm start` desde la carpeta `app`.
+Para levantar el servidor en modo produccion, ejecutar `NODE_ENV=production npm start` desde la carpeta `app`. 
+Se recomienda levantar el proceso mediante un gestor de servicios. El archivo `app/meli.service.example` es un ejemplo
+del archivo de configuración de `systemd` utilizado en [nach.com.ar/meli](https://nach.com.ar/meli).
 
 Ni el modo desarrollo ni el modo produccion del servidor compilan assets. Para esta tarea leer la seccion siguiente.
 
@@ -41,6 +43,7 @@ agregué otros atributos que me resultaban de utilidad
 - Underscore y Backbone
 
 ## Pendientes
+- Viewport y escalabilidad para mobile
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
 - Documentar codigo
 - Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html

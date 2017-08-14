@@ -1,0 +1,12 @@
+[Service]
+ExecStart={{ path_to_nodejs }} {{ path_to_bin_www }}
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=meli
+User={{ user }}
+Group={{ user }}
+Environment=NODE_ENV=production EXPRESS_BASE_PATH='{{ base_path }}'
+
+[Install]
+WantedBy=multi-user.target
