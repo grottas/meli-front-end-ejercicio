@@ -67,10 +67,20 @@
     }
 
     #description {
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
       zoom: 1;
+      padding-right: 16px;
       * {
         max-width: 100%;
+      }
+      img {
+        height: auto;
+      }
+      table:only-child {
+        table-layout: fixed;
+        width: 100%;
+        height: auto;
       }
     }
 
@@ -119,7 +129,7 @@
         width: 60%;
         height: 1em;
         background: $grey-100;
-        color: $grey-100;
+        color: transparent;
       }
       #description {
         background: $grey-100;

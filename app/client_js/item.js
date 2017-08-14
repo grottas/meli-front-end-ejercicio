@@ -58,11 +58,22 @@ window.meli.ItemView = Backbone.View.extend({
       html = this.template({item: this.item, categories: this.categories});
       this.$el.html(html);
       this.$el.removeClass('preview');
+      if (this.item) {
+        $(window).scroll(_.bind(this.followScroll, this))
+      }
     } else if (this.template) {
       html = this.template(this.previewItem());
       this.$el.html(html);
       this.$el.addClass('preview');
     }
+  },
+
+  followScroll: function () {
+    var currentScroll = $(document).scrollTop();
+    var startingPos = this.$el.find('.item-main-info').offset().top;
+    var follower = this.$el.find('#scroll-follower-main-info');
+    var translation = currentScroll - startingPos + 32 < 0 ? 0 : currentScroll - startingPos + 32;
+    follower.css('transform', 'translateY(' + translation + 'px)')
   },
 
   updateTitle: function (item) {

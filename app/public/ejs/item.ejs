@@ -17,16 +17,18 @@
                     <% } %>
                 </div>
             </div><div class="item-main-info">
-                <p class="condition-and-sold-quantity">
-                    <%= item.conditionAndSoldQuantity %>
-                </p>
-                <h1><%= item.title %></h1>
-                <p class="price">
-                    <%= item.price %><span class="decimals"><%= item.decimals %></span>
-                </p>
-                <button class="buy-btn">
-                    Comprar
-                </button>
+                <div id="scroll-follower-main-info">
+                    <p class="condition-and-sold-quantity">
+                        <%= item.conditionAndSoldQuantity %>
+                    </p>
+                    <h1><%= item.title %></h1>
+                    <p class="price">
+                        <%= item.price %><span class="decimals"><%= item.decimals %></span>
+                    </p>
+                    <button class="buy-btn">
+                        Comprar
+                    </button>
+                </div>
             </div></div>
         <div id="item-description">
             <h2>Descripción del producto</h2>

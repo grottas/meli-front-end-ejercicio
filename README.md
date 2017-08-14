@@ -46,6 +46,4 @@ agregué otros atributos que me resultaban de utilidad
 - Documentar codigo
 - Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html
 - Usar ruteo inteligente para assets
-- Usar generador de urls para linkear desde los templates
-- En /item/:id que la columna de la derecha te acompañe al scrollear
 - Items sin imagen ?
