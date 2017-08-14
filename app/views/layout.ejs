@@ -5,8 +5,8 @@
     <title><%= title %></title>
     <meta name='description' content='<%= customMetaDescription || 'La comunidad de compra y venta online más grande de América Latina.' %>'/>
 
-    <link href="/style.min.css" rel="stylesheet">
-    <script src="/main.min.js"></script>
+    <link href="<%= common.staticRouteFor('style.min.css') %>" rel="stylesheet">
+    <script src="<%= common.staticRouteFor('main.min.js') %>"></script>
   </head>
   <body>
     <%- include partials/header.ejs %>

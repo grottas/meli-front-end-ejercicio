@@ -19,7 +19,6 @@ var itemResponseParser = function (jsonResponse) {
       decimals: Math.floor((itemResponse.price - Math.floor(floorPrice)) * 100)
     },
     picture: getBestPicture(itemResponse.pictures),
-    rawPictures: itemResponse.pictures,
     condition: itemResponse.condition,
     free_shipping: itemResponse.shipping.free_shipping,
     sold_quantity: itemResponse.sold_quantity,

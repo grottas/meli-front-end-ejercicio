@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var titleCase = require('title-case');
+var common = require('./common');
 
 router.get('/', function(req, res) {
   var templateParams = {
     title: 'Mercado Libre Argentina',
     customMetaDescription: false,
-    search: ''
+    search: '',
+    common: common
   };
   res.render('index', templateParams);
 });
@@ -17,7 +19,8 @@ router.get('/items', function(req, res) {
   var templateParams = {
     title: ':query en Mercado Libre Argentina'.replace(':query', titleCase(query)),
     customMetaDescription: metaDescription.replace(':query', query),
-    search: query
+    search: query,
+    common: common
   };
   res.render('items', templateParams);
 });
@@ -27,7 +30,8 @@ router.get('/item/:item_id', function(req, res) {
     search: '',
     itemId: req.params.item_id,
     customMetaDescription: false,
-    title: 'Mercado Libre Argentina'
+    title: 'Mercado Libre Argentina',
+    common: common
   };
   res.render('item', templateParams);
 });

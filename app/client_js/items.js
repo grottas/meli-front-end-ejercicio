@@ -2,8 +2,8 @@ window.meli = window.meli || {};
 
 window.meli.ItemsView = Backbone.View.extend({
   el: '#main',
-  templateUrl: '/ejs/items.ejs',
-  itemsApiUrl: '/api/items?q=:query',
+  templateUrl: '../ejs/items.ejs',
+  itemsApiUrl: '../api/items?q=:query',
 
   initialize: function (query){
     $.get(this.templateUrl, _.bind(this.readTemplate, this));

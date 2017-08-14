@@ -2,12 +2,12 @@
   <div class="full-body-container">
     <div id="header-content" class="full-body-content">
       <a href="/">
-        <img class="site-logo" src="/images/logo.png">
+        <img class="site-logo" src="<%= common.staticRouteFor('images/logo.png') %>">
       </a>
-      <form action="/items">
+      <form action="<%= common.staticRouteFor('items') %>">
         <input name="search" placeholder="Nunca dejes de buscar"
                value="<%= locals.search || '' %>"><button class="search-button">
-          <img class="search-icon" src="/images/search.png">
+          <img class="search-icon" src="<%= common.staticRouteFor('images/search.png') %>">
         </button>
       </form>
     </div>

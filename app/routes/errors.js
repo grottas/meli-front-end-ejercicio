@@ -1,9 +1,13 @@
+var common = require('./common');
+
 module.exports = function (app) {
   // catch 404 and forward to error handler
   app.use(function(req, res) {
     var templateParams = {
       title: 'MercadoLibre Argentina - Parece que esta página no existe',
-      customMetaDescription: false
+      customMetaDescription: false,
+      search: '',
+      common: common
     };
     res.status(404);
     res.render('404', templateParams)
