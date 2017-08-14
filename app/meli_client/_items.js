@@ -62,7 +62,7 @@ var pickBestImageFromVariations = function (variations) {
       bestVariation = variation;
     }
   });
-  return bestVariation.url;
+  return bestVariation.secure_url;
 };
 
 var picturesUrl = 'https://api.mercadolibre.com/pictures?ids=:ids';

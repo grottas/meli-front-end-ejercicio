@@ -8,7 +8,7 @@ window.meli.ItemsView = Backbone.View.extend({
   initialize: function (query){
     $.get(this.templateUrl, _.bind(this.readTemplate, this));
     var queryUrl = this.itemsApiUrl.replace(':query', query);
-    $.get(queryUrl, _.bind(this.readResults, this));
+    $.get(queryUrl, _.bind(this.readResults, this)).fail(_.bind(this.noResults, this));
   },
 
   readTemplate: function (response) {
@@ -35,6 +35,11 @@ window.meli.ItemsView = Backbone.View.extend({
     this.render();
   },
 
+  noResults: function () {
+    this.categories = null;
+    this.results = [];
+    this.render()
+  },
 
   previewResults: function () {
     return {

@@ -45,8 +45,8 @@ agregué otros atributos que me resultaban de utilidad
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
 - Modo produccion del server https://www.digitalocean.com/community/tutorials/how-to-deploy-node-js-applications-using-systemd-and-nginx
 - Documentar codigo
-- Manejo de errores. Pagina de 500. Pagina de 404. Pagina de "no hay resultados"
 - Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html
 - Usar ruteo inteligente para assets
 - Usar generador de urls para linkear desde los templates
 - En /item/:id que la columna de la derecha te acompañe al scrollear
+- Items sin imagen ?

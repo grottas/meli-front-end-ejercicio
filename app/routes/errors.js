@@ -14,13 +14,20 @@ module.exports = function (app) {
   });
 
   // error handler
-  app.use(function(err, req, res) {
+  app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+
+    var templateParams = {
+      title: 'MercadoLibre Argentina - Ha ocurrido un error',
+      customMetaDescription: false,
+      search: '',
+      common: common
+    };
+    res.render('error', templateParams);
   });
 };

@@ -9,7 +9,7 @@ window.meli.ItemView = Backbone.View.extend({
   initialize: function (itemId) {
     $.get(this.templateUrl, _.bind(this.readTemplate, this));
     var queryUrl = this.itemsApiUrl.replace(':itemId', itemId);
-    $.get(queryUrl, _.bind(this.readResults, this));
+    $.get(queryUrl, _.bind(this.readResults, this)).fail(_.bind(this.noItem, this));
   },
 
   readTemplate: function (response) {
@@ -39,6 +39,12 @@ window.meli.ItemView = Backbone.View.extend({
     this.render();
   },
 
+  noItem: function () {
+    this.categories = null;
+    this.item = null;
+    this.render();
+  },
+
   previewItem: function () {
     return {
       categories: ['&nbsp'],
@@ -48,7 +54,7 @@ window.meli.ItemView = Backbone.View.extend({
 
   render: function () {
     var html;
-    if (this.template && this.item) {
+    if (this.template && typeof this.item !== 'undefined') {
       html = this.template({item: this.item, categories: this.categories});
       this.$el.html(html);
       this.$el.removeClass('preview');

@@ -6,32 +6,43 @@
     </ol>
 <% } %>
 
-
-<div id="item" class="full-body-content">
-    <div id="item-main"><div class="item-picture">
-            <div class="picture-spacer">
-                <% if (item.picture) { %>
-                    <img src="<%= item.picture %>">
-                <% } else { %>
-                    <div class="no-img"></div>
-                <% } %>
+<% if (item) { %>
+    <div id="item" class="full-body-content">
+        <div id="item-main"><div class="item-picture">
+                <div class="picture-spacer">
+                    <% if (item.picture) { %>
+                        <img src="<%= item.picture %>">
+                    <% } else { %>
+                        <div class="no-img"></div>
+                    <% } %>
+                </div>
+            </div><div class="item-main-info">
+                <p class="condition-and-sold-quantity">
+                    <%= item.conditionAndSoldQuantity %>
+                </p>
+                <h1><%= item.title %></h1>
+                <p class="price">
+                    <%= item.price %><span class="decimals"><%= item.decimals %></span>
+                </p>
+                <button class="buy-btn">
+                    Comprar
+                </button>
+            </div></div>
+        <div id="item-description">
+            <h2>Descripción del producto</h2>
+            <div id="description">
+                <%= item.description %>
             </div>
-        </div><div class="item-main-info">
-            <p class="condition-and-sold-quantity">
-                <%= item.conditionAndSoldQuantity %>
-            </p>
-            <h1><%= item.title %></h1>
-            <p class="price">
-                <%= item.price %><span class="decimals"><%= item.decimals %></span>
-            </p>
-            <button class="buy-btn">
-                Comprar
-            </button>
-        </div></div>
-    <div id="item-description">
-        <h2>Descripción del producto</h2>
-        <div id="description">
-            <%= item.description %>
         </div>
     </div>
-</div>
+<% } else { %>
+    <div id="error" class="full-body-content">
+        <div class="center-content">
+            <h1>Parece que este articulo no existe</h1>
+            <ul id="suggested-actions">
+                <li>Prueba utilizando el buscador para encontrar lo que buscas.</li>
+                <li>Utiliza palabras más genéricas o menos palabras.</li>
+            </ul>
+        </div>
+    </div>
+<% } %>

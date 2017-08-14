@@ -2,7 +2,7 @@ var MeLi = require('./_lib');
 
 var getBestPicture = function (pictures) {
   if (pictures && pictures.length > 0) {
-    return pictures[0].url;
+    return pictures[0].secure_url;
   }
   return null;
 };
@@ -54,10 +54,12 @@ var item = function (id, callback) {
     _categoriesUrl = '',
     gotItem = false,
     gotDescription = false,
-    gotCategories = false;
+    gotCategories = false,
+    callbackCalled = false;
 
   var combineResponses = function (response, requestedUrl) {
-    if (response === null) {
+    if (response === null && !callbackCalled) {
+      callbackCalled = true;
       callback(null);
     }
     parsedItem.item = extend(parsedItem.item, response);
