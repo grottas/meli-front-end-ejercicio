@@ -43,7 +43,6 @@ agregué otros atributos que me resultaban de utilidad
 ## Pendientes
 - Chequear si la query es un id y entonces redireccionar a la vista del item
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
-- Modo produccion del server https://www.digitalocean.com/community/tutorials/how-to-deploy-node-js-applications-using-systemd-and-nginx
 - Documentar codigo
 - Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html
 - Usar ruteo inteligente para assets

@@ -78,6 +78,9 @@
   }
 
   .preview & {
+    position: relative;
+    overflow: hidden;
+    @include loading();
     #item-main {
       h1 {
         background: $grey-100;

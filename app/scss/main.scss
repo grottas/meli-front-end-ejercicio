@@ -46,6 +46,30 @@ a {
   }
 }
 
+@keyframes loading {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+@mixin loading {
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    top: 0;
+    background-image: linear-gradient(to right, transparent, white, transparent);
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
 @import 'header';
 @import 'breadcrumb';
 @import 'items';
