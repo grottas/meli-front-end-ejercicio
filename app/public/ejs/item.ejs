@@ -30,12 +30,14 @@
                     </button>
                 </div>
             </div></div>
-        <div id="item-description">
-            <h2>Descripción del producto</h2>
-            <div id="description">
-                <%= item.description %>
+        <% if (!item.hideDescription) { %>
+            <div id="item-description">
+                <h2>Descripción del producto</h2>
+                <div id="description">
+                    <%= item.description %>
+                </div>
             </div>
-        </div>
+        <% } %>
     </div>
 <% } else { %>
     <div id="error" class="full-body-content">

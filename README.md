@@ -46,4 +46,3 @@ agregué otros atributos que me resultaban de utilidad
 - Documentar codigo
 - Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html
 - Usar ruteo inteligente para assets
-- Items sin imagen ?

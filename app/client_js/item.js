@@ -30,8 +30,9 @@ window.meli.ItemView = Backbone.View.extend({
     this.item = {
       conditionAndSoldQuantity: condition + ' - ' + item.sold_quantity.toString() + amountSoldString,
       title: item.title,
-      picture: item.picture,
+      picture: item.picture || 'http://static.mlstatic.com/org-img/preview/MLA/artsinfoto.gif',
       description: item.description,
+      hideDescription: !item.description,
       price: currency + '$ ' + amountString,
       decimals: decimalsInt < 10 ? '0' + decimalsString : decimalsString
     };

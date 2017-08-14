@@ -54,12 +54,10 @@ var item = function (id, callback) {
     _categoriesUrl = '',
     gotItem = false,
     gotDescription = false,
-    gotCategories = false,
-    callbackCalled = false;
+    gotCategories = false;
 
   var combineResponses = function (response, requestedUrl) {
-    if (response === null && !callbackCalled) {
-      callbackCalled = true;
+    if (response === null && requestedUrl === _itemUrl) {
       callback(null);
     }
     parsedItem.item = extend(parsedItem.item, response);
