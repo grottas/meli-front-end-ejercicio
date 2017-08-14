@@ -8,23 +8,10 @@ $grey-400: #333333;
 $total-columns: 12;
 $small-margin: 16px;
 $medium-margin: 32px;
-$sm-breakpoint: 576px;
-$md-breakpoint: 768px;
 $max-container-width: 1400;
 
-@mixin sm-breakpoint {
-  @media (min-width: $sm-breakpoint) {
-    @content;
-  }
-}
-
-@mixin md-breakpoint {
-  @media (min-width: $md-breakpoint) {
-    @content;
-  }
-}
-
 @import 'normalize.min';
+@import 'media_queries';
 
 body {
   font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;

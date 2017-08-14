@@ -1,0 +1,20 @@
+$sm-breakpoint: 576px;
+$md-breakpoint: 768px;
+
+@mixin sm-breakpoint {
+  @media (min-width: $sm-breakpoint) {
+    @content;
+  }
+}
+
+@mixin md-breakpoint {
+  @media (min-width: $md-breakpoint) {
+    @content;
+  }
+}
+
+@mixin max-width-md {
+  @media (max-width: $md-breakpoint) {
+    @content;
+  }
+}

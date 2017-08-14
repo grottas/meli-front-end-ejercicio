@@ -35,7 +35,7 @@ logar ejecutando `gulp watch`.
 
 
 ## Proceso
-
+<!-- TODO: escribir esta parte -->
 - Usé la pagina oficial de express como guia
 - Aunque no utilicé todos los atributos de la api para renderizar los templates, mantuve la estructura propuesta y
 agregué otros atributos que me resultaban de utilidad
@@ -43,8 +43,7 @@ agregué otros atributos que me resultaban de utilidad
 - Underscore y Backbone
 
 ## Pendientes
-- Viewport y escalabilidad para mobile
 - Revisar usabilidad. Hacer mas semantico el html. Agregar ARIA
 - Documentar codigo
-- Benchmark y performance http://expressjs.com/es/advanced/best-practice-performance.html
+- Cache de respuestas
 - Usar ruteo inteligente para assets

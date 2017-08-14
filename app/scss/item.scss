@@ -7,9 +7,13 @@
 
   #item-main {
     .item-picture {
-      display: inline-block;
-      width: 60%;
-      vertical-align: top;
+      margin-bottom: 16px;
+      @include sm-breakpoint {
+        display: inline-block;
+        vertical-align: top;
+        width: 60%;
+        margin-bottom: 0;
+      }
       .picture-spacer {
         padding-right: 32px;
         img {
@@ -18,9 +22,17 @@
       }
     }
     .item-main-info {
-      display: inline-block;
-      width: 40%;
-      vertical-align: top;
+      @include sm-breakpoint {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+      }
+
+      @include max-width-md {
+        #scroll-follower-main-info {
+          transform: none !important;
+        }
+      }
     }
 
     .condition-and-sold-quantity {
@@ -45,7 +57,6 @@
 
     .buy-btn {
       width: 100%;
-      max-width: 250px; // ugh
       font-size: 16px;
       padding: 10px;
       border: none;
@@ -55,11 +66,17 @@
       cursor: pointer;
       outline: none;
       display: inline-block;
+      @include sm-breakpoint {
+        max-width: 250px; // ugh
+      }
     }
   }
 
   #item-description {
-    width: 60%;
+    @include md-breakpoint {
+      width: 60%;
+    }
+
     h2 {
       font-size: 28px;
       font-weight: 400;
@@ -133,7 +150,7 @@
       }
       #description {
         background: $grey-100;
-        width: 680px;
+        width: 100%;
         height: 400px;
       }
     }
