@@ -70,6 +70,7 @@ esperado, parametros que reciben y contexto de ejcución.
 - Implementar cache de respuestas, sobretodo para consultas a la api de mercadolibre.
 - Integrar analytics y servicios de monitoreo, tanto del lado del servidor como del cliente, para llevar registro de 
 uso, performance y posibles errores no atrapados de la aplicación
+- Eliminar magic numbers dentro de la implementación responsive y tratar de reemplazarlos por valores en base a proporciones.
 
 ## Setup
 
